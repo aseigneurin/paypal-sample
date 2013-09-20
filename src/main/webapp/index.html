@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html ng-app="myApp">
 <head>
-    <title>PayPal sample</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PayPal sample</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
-    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.6.0.min.js"></script>
-    <script src="js/payment.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+  <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.6.0.min.js"></script>
+  <script src="js/payment.js"></script>
 
-    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" media="screen">
+  <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" media="screen">
 
-    <style type="text/css">
+  <style type="text/css">
     body {
-        padding-top: 40px;
-        padding-bottom: 40px;
-        background-color: #f5f5f5;
+      padding-top: 40px;
+      padding-bottom: 40px;
+      background-color: #f5f5f5;
     }
-    </style>
+  </style>
 </head>
 <body>
 
@@ -24,65 +24,6 @@
     <h2>Select a payment method</h2>
     <p><a class="btn btn-large btn-primary" ng-click="payWithCreditCard()"><i class="icon-shopping-cart icon-white"></i> Credit card</a> {{number}}</p>
     <p><a class="btn btn-large" ng-click="payWithPayPal()"><i class="icon-shopping-cart"></i> PayPal</a></p>
-
-    <script type="text/ng-template" id="creditCardModal.html">
-      <div class="modal-header">
-        <h3>Please enter your credit card details</h3>
-      </div>
-      <div class="modal-body">
-        <form>
-          <dl class="dl-horizontal">
-            <dt>Number</dt>
-            <dd><input type="text" ng-model="number"/></dd>
-            <dt>Type</dt>
-            <dd>
-              <select ng-model="type">
-                <option>mastercard</option>
-                <option>visa</option>
-              </select>
-            </dd>
-            <dt>Expire</dt>
-            <dd>
-              <select class="input-mini" ng-model="expire_month">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
-                <option>8</option>
-                <option>9</option>
-                <option>10</option>
-                <option>11</option>
-                <option>12</option>
-              </select>
-              <input class="input-mini" type="text" ng-model="expire_year"/>
-            </dd>
-            <dt>Security code</dt>
-            <dd><input class="input-mini" type="text" ng-model="cvv2"/></dd>
-            <dt>First name</dt>
-            <dd><input class="" type="text" ng-model="first_name"/></dd>
-            <dt>Last name</dt>
-            <dd><input class="" type="text" ng-model="last_name"/></dd>
-          </dl>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-success" ng-click="validate()"><i class="icon-ok icon-white"></i> Validate</button>
-        <button class="btn btn-warning" ng-click="cancel()"><i class="icon-remove icon-white"></i> Cancel</button>
-      </div>
-    </script>
-
-    <script type="text/ng-template" id="paymentOutcome.html">
-      <div class="modal-header">
-        <h3>Processing payment</h3>
-      </div>
-      <div class="modal-body">
-        <div class="span5" ng-show="!paymentOutcome"><progress percent="100" class="progress-warning progress-striped active"></div>
-        <div ng-show="paymentOutcome">{{paymentOutcome}}</div>
-      </div>
-    </script>
   </div>
 
 </body>
