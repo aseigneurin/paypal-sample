@@ -1,0 +1,46 @@
+<div class="modal-header">
+  <h3>Please enter your credit card details</h3>
+</div>
+<div class="modal-body">
+  <form>
+    <dl class="dl-horizontal">
+      <dt>Number</dt>
+      <dd><input type="text" ng-model="number"/></dd>
+      <dt>Type</dt>
+      <dd>
+        <select ng-model="type">
+          <option>mastercard</option>
+          <option>visa</option>
+        </select>
+      </dd>
+      <dt>Expire</dt>
+      <dd>
+        <select class="input-mini" ng-model="expire_month">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+          <option>6</option>
+          <option>7</option>
+          <option>8</option>
+          <option>9</option>
+          <option>10</option>
+          <option>11</option>
+          <option>12</option>
+        </select>
+        <input class="input-mini" type="text" ng-model="expire_year"/>
+      </dd>
+      <dt>Security code</dt>
+      <dd><input class="input-mini" type="text" ng-model="cvv2"/></dd>
+      <dt>First name</dt>
+      <dd><input class="" type="text" ng-model="first_name"/></dd>
+      <dt>Last name</dt>
+      <dd><input class="" type="text" ng-model="last_name"/></dd>
+    </dl>
+  </form>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-success" ng-click="validate()"><i class="icon-ok icon-white"></i> Validate</button>
+  <button class="btn btn-warning" ng-click="cancel()"><i class="icon-remove icon-white"></i> Cancel</button>
+</div>
