@@ -18,30 +18,21 @@ import com.paypal.api.payments.FundingInstrument;
 import com.paypal.api.payments.Payer;
 import com.paypal.api.payments.Payment;
 import com.paypal.api.payments.Transaction;
-import com.paypal.core.ConfigManager;
 import com.paypal.core.rest.APIContext;
-import com.paypal.core.rest.OAuthTokenCredential;
 import com.paypal.core.rest.PayPalRESTException;
-
 import com.seigneurin.dto.PaymentDTO;
 
 @Controller
-public class PaymentController {
+public class CreditCardPaymentController {
 
-    static Logger logger = Logger.getLogger(PaymentController.class);
+    static Logger logger = Logger.getLogger(CreditCardPaymentController.class);
 
-    @RequestMapping(value = "/pay", method = RequestMethod.POST, consumes = "application/json")
+    @RequestMapping(value = "/payWithCreditCard", method = RequestMethod.POST, consumes = "application/json")
     @ResponseBody
     public String pay(@RequestBody PaymentDTO paymentRequest) throws JsonProcessingException, PayPalRESTException {
 
         ObjectMapper mapper = new ObjectMapper();
         logger.info("Received payment request: " + mapper.writeValueAsString(paymentRequest));
-
-        String clientID = ConfigManager.getInstance().getValue("clientID");
-        String clientSecret = ConfigManager.getInstance().getValue("clientSecret");
-        OAuthTokenCredential tokenCredential = new OAuthTokenCredential(clientID, clientSecret);
-
-        String accessToken = tokenCredential.getAccessToken();
 
         CreditCard creditCard = new CreditCard();
         creditCard.setNumber("4417119669820331");
@@ -85,7 +76,7 @@ public class PaymentController {
         payment.setPayer(payer);
         payment.setTransactions(transactions);
 
-        APIContext apiContext = new APIContext(accessToken);
+        APIContext apiContext = PaypalUtils.getAPIContext();
 
         Payment createdPayment = payment.create(apiContext);
         logger.info("Created payment: " + createdPayment.getId() + " " + createdPayment.getState());

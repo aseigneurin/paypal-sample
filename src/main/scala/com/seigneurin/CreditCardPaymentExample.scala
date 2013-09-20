@@ -12,7 +12,7 @@ import java.util.ArrayList
 import com.paypal.core.rest.APIContext
 import com.paypal.core.ConfigManager
 
-object PaymentExample extends Application {
+object CreditCardPaymentExample extends Application {
 
   var clientID = ConfigManager.getInstance().getValue("clientID")
   var clientSecret = ConfigManager.getInstance().getValue("clientSecret")

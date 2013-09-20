@@ -22,7 +22,7 @@ var PaymentCtrl = function ($scope, $modal, $http) {
 				first_name: result.first_name,
 				last_name: result.last_name
 			};
-			$http.post("web/pay", data)
+			$http.post("web/payWithCreditCard", data)
 				.success(function(data, status) {
 					$scope.paymentOutcome = "Payment approved: " + data;
 				})
