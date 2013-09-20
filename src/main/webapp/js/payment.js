@@ -4,7 +4,7 @@ var PaymentCtrl = function ($scope, $modal, $http) {
 	$scope.payWithCreditCard = function() {
 
 		var modalInstance = $modal.open({
-			templateUrl: "creditCardModal.html",
+			templateUrl: "partials/creditCardModal.html",
 			controller: CreditCardCtrl
 		});
 
@@ -34,7 +34,7 @@ var PaymentCtrl = function ($scope, $modal, $http) {
 
 	showPaymentProgress = function() {
 		var paymentOutcomeModalInstance = $modal.open({
-			templateUrl: "paymentOutcome.html",
+			templateUrl: "partials/paymentOutcome.html",
 			controller: PaymentOutcomeCtrl,
 			scope: $scope
 		});
