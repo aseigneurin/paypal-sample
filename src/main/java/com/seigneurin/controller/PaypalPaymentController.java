@@ -143,9 +143,10 @@ public class PaypalPaymentController {
         String baseUrl = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
                 + request.getContextPath();
 
+        String outcome = "approved";
         if (!"approved".equals(executedPayment.getState()))
-            return new RedirectView(baseUrl + "/paypalPaymentFailed.html");
-        return new RedirectView(baseUrl + "/paypalPaymentApproved.html");
+            return new RedirectView("failed");
+        return new RedirectView(baseUrl + "/paypalPaymentApproved.html#/" + outcome);
     }
 
     @RequestMapping(value = "/paypalPaymentCanceled", method = RequestMethod.GET)
@@ -154,7 +155,7 @@ public class PaypalPaymentController {
 
         String baseUrl = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
                 + request.getContextPath();
-        return new RedirectView(baseUrl + "/paypalPaymentFailed.html");
+        return new RedirectView(baseUrl + "/paypalPaymentOutcome.html#/failed");
     }
 
     class PaymentDetails {

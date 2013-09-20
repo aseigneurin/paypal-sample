@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="paymentOutcome">
+<head>
+  <title>PayPal sample</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+  <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.6.0.min.js"></script>
+  <script src="js/paymentOutcome.js"></script>
+
+  <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" media="screen">
+
+  <style type="text/css">
+    body {
+      padding-top: 40px;
+      padding-bottom: 40px;
+      background-color: #f5f5f5;
+    }
+  </style>
+</head>
+<body>
+
+  <div ng-view></div>
+
+  <script type="text/ng-template" id="partials/paypalPaymentApproved.html">
+    <div class="container">
+      <h2 class="text-success">Payment approved!</h2>
+    </div>
+  </script>
+
+  <script type="text/ng-template" id="partials/paypalPaymentFailed.html">
+    <div class="container">
+      <h2 class="text-error">Payment failed :-(</h2>
+    </div>
+  </script>
+
+</body>
+</html>
