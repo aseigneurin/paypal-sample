@@ -53,7 +53,7 @@ var CreditCardCtrl = function($scope, $modalInstance, $modal) {
 	$scope.last_name = "Shopper";
 
 	$scope.validate = function() {
-    	$modalInstance.close($scope);
+    	$modalInstance.close(this);
 	};
 
 	$scope.cancel = function() {
